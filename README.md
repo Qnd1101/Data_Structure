@@ -16,5 +16,5 @@
 ![image](https://user-images.githubusercontent.com/107795830/226497844-0d4ecdf7-bb33-409f-a05b-e6668acabad8.png)
 ![image](https://user-images.githubusercontent.com/107795830/226497920-c94e40ae-183e-4452-b02f-74435258d212.png)
 
-* ## 회소 행렬
-### 회소 행렬이란 요소 중에 0으로 저장 되어 있는 형태로 기억 장소를 절약하기 위해 Linked List를 이용하여 저장한다.
+* ## 희소 행렬
+### 소 행렬이란 요소 중에 0으로 저장 되어 있는 형태로 기억 장소를 절약하기 위해 Linked List를 이용하여 저장한다.

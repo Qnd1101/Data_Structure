@@ -49,3 +49,67 @@
 -----
 
 * ## 스택(Stack)
+  * 스택은 리스트의 한쪽 끝 자료의 삽입 및 삭제가 이루어지는 구조이다.
+  * **먼저 삽입된 자료가 맨 나중에 삭제되는 후입 선출로 Last In First Out 방식이다.
+  * Push : 삽입 , Pop : 삭제
+* ### 특징
+  * **Push**
+    * 스택의 크기를 초과하기 전까지 삽입을 한다.
+    * 스택의 크기를 초과하여 삽입을 할 경우 OverFlow가 발생한다.
+  * **Pop**
+    *  스택이 비어있을 때까지 삭제를 한다.
+    *  스택이 비어있을 경우 UnderFlow가 발생한다.
+```java
+package sungil2023_03_algo;
+
+import java.util.EmptyStackException;
+
+public class IntStack {
+	// 스택용 배열
+	private int[] stk;
+	// 스택의 크기
+	private int capacity;
+	// 스택 포인터
+	private int ptr;
+	
+	//--- 실행시 예외 : 스택이 비어있음 ---//
+	public class EmptyIntStackExeption extends RuntimeException{
+		public EmptyIntStackExeption() { }
+	}
+	
+	//--- 실행시 예외 : 스택이 가득 차있음 ---//
+	public class OverflowIntStackExeption extends RuntimeException{
+		public OverflowIntStackExeption() { }
+	}
+	
+	//--- 생성자(constreuctor) ---//
+	public IntStack(int maxlen) {
+		ptr = 0;
+		capacity = maxlen;
+		try {
+			// 스택 본체용 배열을 생성
+			stk = new int[capacity];
+		}
+			// 생성할 수 없음
+		catch (OutOfMemoryError e) {
+			  capacity = 0;
+		}
+	}
+	
+	//--- 스택에 x를 푸시 ---//
+	public int push(int x) throws OverflowIntStackExeption{
+		if (ptr >= capacity)
+			// 스택이 가득 차있음
+			throw new  OverflowIntStackExeption();
+		return stk[ptr++] = x;
+	}
+	
+	//--- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
+	public int pop(int x) throws EmptyStackException{
+		if (ptr == 0)
+			// 스택이 비어있음
+			throw new EmptyStackException();
+		return stk[--ptr];
+	}
+}
+```

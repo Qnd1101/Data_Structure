@@ -1,4 +1,10 @@
-# 선형 구조
+# 자료구조
+
+## 자료구조의 분류
+### 선형 구조와 비선형 구조로 선형 구조는 리스트(선형리스트와 연결리스트), 스택, 큐, 데큐, 비선형구조는 트리와 그래프가 있다. 
+![image](https://user-images.githubusercontent.com/107795830/226811565-79894bc0-33a0-4cd8-aee0-da4fca18f475.png)
+
+-----
 
 * ## 선형구조
   * **리스트(List)**
@@ -6,8 +12,7 @@
     * **연결 리스트(Linked List)**
   * **스택(Stack)** - LIFO(Last In First Out)
   * **큐(queue)** - FIFO(First In First out)
-  
-![image](https://user-images.githubusercontent.com/107795830/226809838-d827cf97-1a5d-4b06-86ce-29ae66b05efd.png)
+ 
 
 -----
 
@@ -90,18 +95,21 @@ public class IntStack {
 	public IntStack(int maxlen) {
 		ptr = 0;
 		capacity = maxlen;
-		try {
+		try 
+		{
 			// 스택 본체용 배열을 생성
 			stk = new int[capacity];
 		}
 			// 생성할 수 없음
-		catch (OutOfMemoryError e) {
+		catch (OutOfMemoryError e)
+		{
 			  capacity = 0;
 		}
 	}
 	
 	//--- 스택에 x를 푸시 ---//
-	public int push(int x) throws OverflowIntStackExeption{
+	public int push(int x) throws OverflowIntStackExeption
+	{
 		if (ptr >= capacity)
 			// 스택이 가득 차있음
 			throw new  OverflowIntStackExeption();
@@ -109,7 +117,8 @@ public class IntStack {
 	}
 	
 	//--- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
-	public int pop(int x) throws EmptyStackException{
+	public int pop(int x) throws EmptyStackException
+	{
 		if (ptr == 0)
 			// 스택이 비어있음
 			throw new EmptyStackException();
@@ -120,11 +129,11 @@ public class IntStack {
 -----
 
 ## 큐(queue) - FIFO(First In First out)
-* 큐(queue)는 한쪽 방향으로 데이터가 삽입되고 반대 방향으로 데이터가 삭제되는 먼저   
-  들어온 데이터가 먼저 나가는 선입 선출(First In First Out) 구조이다.
-* 특별한 우선 순위가 없을 경우에는 먼저 들어온 프로세스가 먼저 처리된다.
-* 예를 들면 계산대에서 먼저 계산대에 온 고객이 먼저 계산하고 나가는 것이다.
-![image](https://user-images.githubusercontent.com/107795830/226809711-9fc0b8c3-ed31-4cbd-98d4-2b3f240f12d4.png)
+* #### 큐(queue)는 한쪽 방향으로 데이터가 삽입되고 반대 방향으로 데이터가 삭제되는 먼저 들어온 데이터가 먼저 나가는 선입 선출(First In First Out) 구조이다.
+* #### 특별한 우선 순위가 없을 경우에는 먼저 들어온 프로세스가 먼저 처리된다.
+* #### 예를 들면 계산대에서 먼저 계산대에 온 고객이 먼저 계산하고 나가는 것이다.
+
+![image](https://user-images.githubusercontent.com/107795830/226809992-fa685ecd-5df8-4365-b5ed-0b17c4bd4cd6.png)
 
 ### 아무 것도 없는 큐에서 데이터 삭제가 일어나면 UnderFlow Error 발생하고,   
 ### 반대로 큐에 다 채워져 있는 상태에서 삽입 시 OverFlow Error가 발생한다.
@@ -140,4 +149,68 @@ public class IntStack {
   * 운영 체제의 작업 스케쥴링에 사용된다.
  
   ![image](https://user-images.githubusercontent.com/107795830/226809777-cd0918e1-9593-4a90-8cfe-ebdba786df57.png)
+  
+* ### Java로 큐 구현
+```java
+package sungil2023_03_algo;
+
+public class IntQueue {
+	private int[] que; 	  // 큐용 배열
+	private int capacity;     // 큐의 크기
+	private int front;	  // 맨 처음 요소 커서
+	private int rear;	  // 맨 끝 요소 커서
+	private int num;	  // 현재 데이터 개수
+	
+	//--- 실행시 예외 : 큐가 비어있음 ---//
+	public class EmptyIntQueueException extends RuntimeException{
+		public EmptyIntQueueException() {}
+	}
+	
+	//--- 실행시 예외 : 큐가 가득 차있음 ---//
+	public class OverflowIntQueueException extends RuntimeException{
+		public OverflowIntQueueException() {}
+	}
+	
+	//--- 생성자(constructor) ---//
+	public IntQueue(int maxlen) {
+		num = front = rear = 0;
+		capacity = maxlen;
+		try {
+			// 큐 본체용 배열을 생성
+			que = new int[capacity];
+		}
+		catch (OutOfMemoryError e) {
+			// 생성할 수 없음
+			capacity = 0;
+		}
+	}
+	
+	//--- 큐에 데이터를 인큐 ---//
+	public int enque(int x) throws OverflowIntQueueException {
+		if (num >= capacity) {
+			throw new OverflowIntQueueException(); // 큐가 가득 찼음
+		}
+		que[rear++] = x;
+		num++;
+		if(rear == capacity) {
+			rear = 0;
+		}
+		return x;
+	}
+	
+	//--- 큐에서 데이터를 디큐 ---//
+	public int deque() throws EmptyIntQueueException{
+		if (num <= 0) {
+			throw new EmptyIntQueueException(); // 큐가 비어있음
+		}
+		int x = que[front++];
+		num--;
+		if(front == capacity) {
+			front = 0;
+		}
+		return x;
+	}
+
+}
+```
 

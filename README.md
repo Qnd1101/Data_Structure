@@ -4,7 +4,11 @@
   * **리스트(List)**
     * **선형 리스트(Linear List)**
     * **연결 리스트(Linked List)**
-  * **스택(Stack)**
+  * **스택(Stack)** - LIFO(Last In First Out)
+  * **큐(queue)** - FIFO(First In First out)
+  
+![image](https://user-images.githubusercontent.com/107795830/226809838-d827cf97-1a5d-4b06-86ce-29ae66b05efd.png)
+
 -----
 
 * ## 선형 리스트(Linear List)
@@ -28,7 +32,7 @@
 -----
 
 
-* ## 연결 리스트(Linked List)
+* ## 연결 리스트(Linked List) 
   * 연결 리스트는 자료들을 반드시 연속적으로 배열시키지 않는다. 
   * **동적 메모리에 할당된 링크에 의해 연결된 유한 개수의 데이터 원소들**
 * ### 특징
@@ -48,7 +52,7 @@
 
 -----
 
-* ## 스택(Stack)
+* ## 스택(Stack) - LIFO(Last In First Out)
   * 스택은 리스트의 한쪽 끝 자료의 삽입 및 삭제가 이루어지는 구조이다.
   * **먼저 삽입된 자료가 맨 나중에 삭제되는 후입 선출로 Last In First Out 방식이다.**
   * Push : 삽입 , Pop : 삭제
@@ -59,9 +63,9 @@
   * **Pop**
     *  스택이 비어있을 때까지 삭제를 한다.
     *  스택이 비어있을 경우 UnderFlow가 발생한다.
-```java
-package sungil2023_03_algo;
 
+* ### Java로 스택 구현
+```java
 import java.util.EmptyStackException;
 
 public class IntStack {
@@ -113,3 +117,27 @@ public class IntStack {
 	}
 }
 ```
+-----
+
+## 큐(queue) - FIFO(First In First out)
+* 큐(queue)는 한쪽 방향으로 데이터가 삽입되고 반대 방향으로 데이터가 삭제되는 먼저   
+  들어온 데이터가 먼저 나가는 선입 선출(First In First Out) 구조이다.
+* 특별한 우선 순위가 없을 경우에는 먼저 들어온 프로세스가 먼저 처리된다.
+* 예를 들면 계산대에서 먼저 계산대에 온 고객이 먼저 계산하고 나가는 것이다.
+![image](https://user-images.githubusercontent.com/107795830/226809711-9fc0b8c3-ed31-4cbd-98d4-2b3f240f12d4.png)
+
+### 아무 것도 없는 큐에서 데이터 삭제가 일어나면 UnderFlow Error 발생하고,   
+### 반대로 큐에 다 채워져 있는 상태에서 삽입 시 OverFlow Error가 발생한다.
+
+* ### 프런트(F, Front)
+  * 가장 먼저 삽입된 자료의 기억 장소를 가리키는 포인터이다.
+  * 삭제 작업을 할 때 사용한다.
+* ### 리어(R, Rear)
+  * 가장 마지막에 삽입된 자료의 기억 장소를 가리키는 포인터이다.
+  * 삽입 작업을 할 때 사용한다.
+* ### Queue의 응용 분야
+  * 창구 업무나 택시 정거장, 버스 정류장 등 서비스 순서를 기다리는 등의 대기 행열의 처리에 사용한다.
+  * 운영 체제의 작업 스케쥴링에 사용된다.
+ 
+  ![image](https://user-images.githubusercontent.com/107795830/226809777-cd0918e1-9593-4a90-8cfe-ebdba786df57.png)
+

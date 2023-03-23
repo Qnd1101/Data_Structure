@@ -6,13 +6,15 @@
 
 -----
 
-* ## 선형구조
+* ## 선형 구조
   * **리스트(List)**
     * **선형 리스트(Linear List)**
     * **연결 리스트(Linked List)**
   * **스택(Stack)** - LIFO(Last In First Out)
   * **큐(queue)** - FIFO(First In First out)
- 
+* ## 비선형 구조
+  * 트리(Tree)
+    * ** 이진 트리(binary tree)
 
 -----
 
@@ -214,3 +216,44 @@ public class IntQueue {
 }
 ```
 
+-----
+
+중복된 값은 허용하지 않는다.
+
+![image](https://user-images.githubusercontent.com/107795830/227129934-4a65a246-5d80-4ece-aacc-3e25a03745a8.png)
+
+## 트리(Tree)
+
+* ### 트리는 정점(Node)과 선분(branch)를 이용하여 사이클을 이루지 않도록 구성한 그래프(Graph)의 특수한 형태이다.
+* ### 트리 관련 용어
+  * ### 노드(Node)
+     * ##### 트리의 기본이면서 자료 항목과 다른 항목에 대한 가지(Branch)를 합친 것이다.
+  * ### 깊이(Depth, Height)
+     * ##### 트리에서 노드가 가질 수 있는 최대의 레벨을 뜻한다.
+  * ### 디그리(Degree)
+     * ##### 차수로 각 노드에서 뻗어 나온 가지의 수 이다.
+     > A = 3, B = 2, C = 1, D = 3
+  * ### 단말 노드(Terminal Node, = 잎(Leaf) 노드 )
+     * ##### 자식이 없는 노드 즉, Degree(차수)가 0인 노드
+     > K L, F, G, M, I, J
+  * ### 비단말 노드(Non-Terminal Node)
+     * ##### 자식이 하나라도 있는 노드, Degree(차수)가 0이 아닌 노드
+     > A, B, C, D, E, H
+  * ### 조상 노드(Ancestors Node) 
+     * ##### 임의의 노드에서 근 노드에 이르는 경로상에 있는 노드들
+   	> M의 조상 노드는 H, D, A
+  * ### 자식 노드(Son Node) 
+     * ##### 어떤 노드에 연결된 다음 레벨의 노드들
+   	> D의 자식 노드는 H, I, J
+  * ### 부모 노드(Parent Node) 
+     * ##### 어떤 노드에 연결된 이전 레벨의 노드들
+   	> E, F의 부모 노드는 B
+  * ### 형제 노드(Brother Node, Sibling)
+     * ##### 동일한 부모를 갖는 노드들
+   	> H의 형제 노드는 I, J 
+
+-----
+
+## 이진 트리(binary tree)
+  
+* ### 모든 노들의 자식 노드가 두 개 이하인 트리를 의미하는데, 다음은 이진 트리의 예다.

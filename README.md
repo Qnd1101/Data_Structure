@@ -218,13 +218,10 @@ public class IntQueue {
 
 -----
 
-중복된 값은 허용하지 않는다.
-
-![image](https://user-images.githubusercontent.com/107795830/227129934-4a65a246-5d80-4ece-aacc-3e25a03745a8.png)
-
 ## 트리(Tree)
 
 * ### 트리는 정점(Node)과 선분(branch)를 이용하여 사이클을 이루지 않도록 구성한 그래프(Graph)의 특수한 형태이다.
+![image](https://user-images.githubusercontent.com/107795830/227129934-4a65a246-5d80-4ece-aacc-3e25a03745a8.png)
 * ### 트리 관련 용어
   * ### 노드(Node)
      * #### 트리의 기본이면서 자료 항목과 다른 항목에 대한 가지(Branch)를 합친 것이다.

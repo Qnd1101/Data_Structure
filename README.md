@@ -14,7 +14,7 @@
   * **큐(queue)** - FIFO(First In First out)
 * ## 비선형 구조
   * 트리(Tree)
-    * ** 이진 트리(binary tree)
+    * **이진 트리(binary tree)**
 
 -----
 
